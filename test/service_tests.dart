@@ -2,7 +2,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:leccion_paspuel_hernandez/services/viaje_service.dart';
-import 'package:leccion_paspuel_hernandez/services/chapico_service.dart';
+import 'package:leccion_paspuel_hernandez/services/capicua_service.dart';
 
 void main() {
   // ============= PRUEBAS ADICIONALES VIAJE SERVICE =============
@@ -97,91 +97,91 @@ void main() {
     });
   });
 
-  // ============= PRUEBAS ADICIONALES CHAPICO SERVICE =============
-  group('ChapicoService - Tests Exhaustivos', () {
-    late ChapicoService chapicoService;
+  // ============= PRUEBAS ADICIONALES CAPICUA SERVICE =============
+  group('CapicuaService - Tests Exhaustivos', () {
+    late CapicuaService capicuaService;
 
     setUp(() {
-      chapicoService = ChapicoService();
+      capicuaService = CapicuaService();
     });
 
-    // Prueba 1: Números de un dígito (siempre son chapicos)
-    test('Números de un dígito son siempre chapicos', () {
+    // Prueba 1: Números de un dígito (siempre son capicúa)
+    test('Números de un dígito son siempre capicúa', () {
       for (int i = 0; i <= 9; i++) {
-        expect(chapicoService.esChapico(i), true,
-            reason: '$i debe ser chapico');
+        expect(capicuaService.esCapicua(i), true,
+            reason: '$i debe ser capicúa');
       }
     });
 
     // Prueba 2: Números de dos dígitos iguales
-    test('Números de dos dígitos iguales son chapicos (11, 22, 33...)', () {
-      expect(chapicoService.esChapico(11), true);
-      expect(chapicoService.esChapico(22), true);
-      expect(chapicoService.esChapico(99), true);
+    test('Números de dos dígitos iguales son capicúa (11, 22, 33...)', () {
+      expect(capicuaService.esCapicua(11), true);
+      expect(capicuaService.esCapicua(22), true);
+      expect(capicuaService.esCapicua(99), true);
     });
 
     // Prueba 3: Números de dos dígitos diferentes
-    test('Números de dos dígitos diferentes NO son chapicos', () {
-      expect(chapicoService.esChapico(10), false);
-      expect(chapicoService.esChapico(12), false);
-      expect(chapicoService.esChapico(98), false);
+    test('Números de dos dígitos diferentes NO son capicúa', () {
+      expect(capicuaService.esCapicua(10), false);
+      expect(capicuaService.esCapicua(12), false);
+      expect(capicuaService.esCapicua(98), false);
     });
 
-    // Prueba 4: Números de tres dígitos chapicos
-    test('121, 131, 141... deben ser chapicos', () {
-      expect(chapicoService.esChapico(121), true);
-      expect(chapicoService.esChapico(131), true);
-      expect(chapicoService.esChapico(141), true);
-      expect(chapicoService.esChapico(505), true);
+    // Prueba 4: Números de tres dígitos capicúa
+    test('121, 131, 141... deben ser capicúa', () {
+      expect(capicuaService.esCapicua(121), true);
+      expect(capicuaService.esCapicua(131), true);
+      expect(capicuaService.esCapicua(141), true);
+      expect(capicuaService.esCapicua(505), true);
     });
 
-    // Prueba 5: Números de cuatro dígitos chapicos
-    test('1221, 1331, 1441... deben ser chapicos', () {
-      expect(chapicoService.esChapico(1221), true);
-      expect(chapicoService.esChapico(1331), true);
-      expect(chapicoService.esChapico(1441), true);
+    // Prueba 5: Números de cuatro dígitos capicúa
+    test('1221, 1331, 1441... deben ser capicúa', () {
+      expect(capicuaService.esCapicua(1221), true);
+      expect(capicuaService.esCapicua(1331), true);
+      expect(capicuaService.esCapicua(1441), true);
     });
 
-    // Prueba 6: Números de cinco dígitos chapicos
-    test('12321, 54345... deben ser chapicos', () {
-      expect(chapicoService.esChapico(12321), true);
-      expect(chapicoService.esChapico(54345), true);
-      expect(chapicoService.esChapico(99999), true);
+    // Prueba 6: Números de cinco dígitos capicúa
+    test('12321, 54345... deben ser capicúa', () {
+      expect(capicuaService.esCapicua(12321), true);
+      expect(capicuaService.esCapicua(54345), true);
+      expect(capicuaService.esCapicua(99999), true);
     });
 
-    // Prueba 7: Números que NO son chapicos
-    test('123, 456, 789... NO deben ser chapicos', () {
-      expect(chapicoService.esChapico(123), false);
-      expect(chapicoService.esChapico(456), false);
-      expect(chapicoService.esChapico(789), false);
-      expect(chapicoService.esChapico(1234), false);
+    // Prueba 7: Números que NO son capicúa
+    test('123, 456, 789... NO deben ser capicúa', () {
+      expect(capicuaService.esCapicua(123), false);
+      expect(capicuaService.esCapicua(456), false);
+      expect(capicuaService.esCapicua(789), false);
+      expect(capicuaService.esCapicua(1234), false);
     });
 
     // Prueba 8: Comparar ambos métodos
-    test('Los dos métodos (esChapico y esChapicoAlternativo) dan el mismo resultado',
+    test('Los dos métodos (esCapicua y esCapicuaAlternativo) dan el mismo resultado',
         () {
       final numeros = [121, 123, 1331, 456, 12321, 789];
 
       for (final num in numeros) {
-        expect(chapicoService.esChapico(num),
-            chapicoService.esChapicoAlternativo(num),
+        expect(capicuaService.esCapicua(num),
+            capicuaService.esCapicuaAlternativo(num),
             reason: 'Los métodos deben coincidir para $num');
       }
     });
 
     // Prueba 9: Números con ceros
-    test('Números con ceros como 101, 202, 303 son chapicos', () {
-      expect(chapicoService.esChapico(101), true);
-      expect(chapicoService.esChapico(202), true);
-      expect(chapicoService.esChapico(303), true);
-      expect(chapicoService.esChapico(1001), true);
+    test('Números con ceros como 101, 202, 303 son capicúa', () {
+      expect(capicuaService.esCapicua(101), true);
+      expect(capicuaService.esCapicua(202), true);
+      expect(capicuaService.esCapicua(303), true);
+      expect(capicuaService.esCapicua(1001), true);
     });
 
-    // Prueba 10: Números grandes chapicos
-    test('Números grandes chapicos como 9119, 123454321', () {
-      expect(chapicoService.esChapico(9119), true);
-      expect(chapicoService.esChapico(123454321), true);
-      expect(chapicoService.esChapico(1234554321), true);
+    // Prueba 10: Números grandes capicúa
+    test('Números grandes capicúa como 9119, 123454321', () {
+      expect(capicuaService.esCapicua(9119), true);
+      expect(capicuaService.esCapicua(123454321), true);
+      expect(capicuaService.esCapicua(1234554321), true);
     });
   });
 }

@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:leccion_paspuel_hernandez/main.dart';
 import 'package:leccion_paspuel_hernandez/services/viaje_service.dart';
-import 'package:leccion_paspuel_hernandez/services/chapico_service.dart';
+import 'package:leccion_paspuel_hernandez/services/capicua_service.dart';
 
 void main() {
   // ============= PRUEBAS UNITARIAS - EJERCICIO 3 =============
@@ -42,21 +42,21 @@ void main() {
   });
 
   // ============= PRUEBAS UNITARIAS - EJERCICIO 4 =============
-  group('ChapicoService - Ejercicio 4', () {
-    late ChapicoService chapicoService;
+  group('CapicuaService - Ejercicio 4', () {
+    late CapicuaService capicuaService;
 
     setUp(() {
-      chapicoService = ChapicoService();
+      capicuaService = CapicuaService();
     });
 
-    // Caso de prueba 1: Número chapico válido
-    test('esChapico: 121 debe retornar true', () {
-      expect(chapicoService.esChapico(121), true);
+    // Caso de prueba 1: Número capicúa válido
+    test('esCapicua: 121 debe retornar true', () {
+      expect(capicuaService.esCapicua(121), true);
     });
 
-    // Caso de prueba 2: Número no chapico
-    test('esChapico: 123 debe retornar false', () {
-      expect(chapicoService.esChapico(123), false);
+    // Caso de prueba 2: Número no capicúa
+    test('esCapicua: 123 debe retornar false', () {
+      expect(capicuaService.esCapicua(123), false);
     });
   });
 

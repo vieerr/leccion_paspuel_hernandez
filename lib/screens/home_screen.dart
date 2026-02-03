@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 5),
                       Text(
-                        'Número Chapico',
+                        'Número Capicúa',
                         style: TextStyle(
                           fontSize: 12,
                           color: Colors.white,

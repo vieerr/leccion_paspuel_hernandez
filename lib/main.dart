@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 import 'screens/ejercicio3_screen.dart';
-import 'screens/ejercicio4_screen.dart';
+import 'screens/ejercicio4_capicua_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       home: const HomeScreen(),
       routes: {
         '/ejercicio3': (context) => const Ejercicio3Screen(),
-        '/ejercicio4': (context) => const Ejercicio4Screen(),
+        '/ejercicio4': (context) => const Ejercicio4CapicuaScreen(),
       },
     );
   }
